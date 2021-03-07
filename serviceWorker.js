@@ -1,7 +1,5 @@
 var CACHE_NAME = 'londogard-colorkidz';
-
 var urlsToCache = [
-  "/",
   "/index.html",
   "/NEW.js",
   "/android-chrome-192x192.png",
@@ -25,11 +23,4 @@ self.addEventListener('install', function(event) {
       })
   );
 });
-
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request).then(function(response) {
-            return response || fetch(event.request);
-        })
-    );
-});
+self.addEventListener('fetch',() => console.log("fetch"));
